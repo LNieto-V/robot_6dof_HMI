@@ -13,8 +13,6 @@ Refactored from `openbot_5dof` to support **multiple robot designs** via configu
 
 ## 🚀 Getting Started
 
-## 🚀 Getting Started
-
 ### Prerequisites
 
 -   **Python 3.12+**
@@ -71,12 +69,11 @@ robot_6dof_HMI/
 ├── config/                 # Configuration files
 │   └── robots/             # Robot definitions (JSON)
 ├── src/
-│   ├── domain/             # Core Logic (Kinematics, Models)
-│   ├── application/        # Services (Controller, Simulation)
-│   ├── infrastructure/     # Data Access (Config Loader, Repo)
-│   ├── interface/          # GUI (CustomTkinter Views)
+│   ├── core/               # Domain Logic (Kinematics, Models)
+│   ├── services/           # Application Services (Controller, Simulation)
+│   ├── data/               # Data Access (Config Loader, Repo)
+│   ├── ui/                 # GUI (CustomTkinter Views)
 │   └── main.py             # Entry Point
-└── unificado.py            # Legacy Monolithic Version (Reference)
 ```
 
 ## 🏗️ Architecture
