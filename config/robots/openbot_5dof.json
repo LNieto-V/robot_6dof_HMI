@@ -1,0 +1,105 @@
+{
+    "name": "OpenBot 5-DOF",
+    "version": "1.0",
+    "dof": 5,
+    "unit_scale_deg": 0.293,
+    "links": [
+        {
+            "name": "Base",
+            "id": 1,
+            "dh": [
+                0,
+                14.35,
+                0,
+                1.570796327
+            ],
+            "limits": [
+                0,
+                1023
+            ],
+            "center": 512,
+            "axis": "z"
+        },
+        {
+            "name": "Shoulder",
+            "id": 2,
+            "dh": [
+                1.570796327,
+                0,
+                11.0,
+                0
+            ],
+            "limits": [
+                182,
+                925
+            ],
+            "center": 512,
+            "axis": "z"
+        },
+        {
+            "name": "Elbow",
+            "id": 3,
+            "dh": [
+                0,
+                0,
+                9.0,
+                0
+            ],
+            "limits": [
+                50,
+                945
+            ],
+            "center": 512,
+            "axis": "z"
+        },
+        {
+            "name": "WristRot",
+            "id": 4,
+            "dh": [
+                0,
+                0,
+                0,
+                1.570796327
+            ],
+            "limits": [
+                0,
+                1023
+            ],
+            "center": 512,
+            "axis": "z"
+        },
+        {
+            "name": "WristPit",
+            "id": 5,
+            "dh": [
+                0,
+                2.9,
+                7.3,
+                0
+            ],
+            "limits": [
+                386,
+                959
+            ],
+            "center": 512,
+            "axis": "z"
+        }
+    ],
+    "gripper": {
+        "name": "Gripper",
+        "id": 6,
+        "limits": [
+            250,
+            550
+        ],
+        "center": 400
+    },
+    "home_position": [
+        512,
+        512,
+        512,
+        512,
+        512,
+        400
+    ]
+}

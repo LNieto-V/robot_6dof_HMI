@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "export_time": "2026-02-16 16:25:48",
+    "robot": "OpenBot 5-DOF",
+    "waypoints": 1,
+    "format_version": "1.0"
+  },
+  "waypoints": [
+    {
+      "index": 0,
+      "positions": [
+        546,
+        458,
+        298,
+        324,
+        583
+      ],
+      "servo_names": [
+        "Base",
+        "Shoulder",
+        "Elbow",
+        "WristRot",
+        "WristPit",
+        "Gripper"
+      ]
+    }
+  ]
+}
