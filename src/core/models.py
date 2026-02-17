@@ -26,7 +26,7 @@ class RobotConfig:
     dof: int
     unit_scale_deg: float
     links: List[RobotLink]
-    gripper: RobotGripper
+    gripper: Optional[RobotGripper]
     home_position: List[int]
 
 @dataclass

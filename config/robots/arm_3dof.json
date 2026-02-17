@@ -1,0 +1,61 @@
+{
+    "name": "Basic Arm 3-DOF",
+    "version": "1.1",
+    "dof": 3,
+    "unit_scale_deg": 0.293,
+    "links": [
+        {
+            "name": "Base",
+            "id": 1,
+            "dh": [
+                0,
+                10.0,
+                0,
+                1.5708
+            ],
+            "limits": [
+                0,
+                1023
+            ],
+            "center": 512,
+            "axis": "z"
+        },
+        {
+            "name": "Shoulder",
+            "id": 2,
+            "dh": [
+                1.5708,
+                0,
+                10.0,
+                0
+            ],
+            "limits": [
+                0,
+                1023
+            ],
+            "center": 512,
+            "axis": "z"
+        },
+        {
+            "name": "Elbow",
+            "id": 3,
+            "dh": [
+                0,
+                0,
+                10.0,
+                0
+            ],
+            "limits": [
+                0,
+                1023
+            ],
+            "center": 512,
+            "axis": "z"
+        }
+    ],
+    "home_position": [
+        512,
+        512,
+        512
+    ]
+}

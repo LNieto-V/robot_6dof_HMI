@@ -135,6 +135,11 @@ class Visualizer3D(ctk.CTkFrame):
             self.gripper_right.set_data(right[:, 0], right[:, 1])
             self.gripper_right.set_3d_properties(right[:, 2])
             self.gripper_right.set_color(gripper_color)
+        else:
+            self.gripper_left.set_data([], [])
+            self.gripper_left.set_3d_properties([])
+            self.gripper_right.set_data([], [])
+            self.gripper_right.set_3d_properties([])
 
         self.canvas.draw_idle()
 

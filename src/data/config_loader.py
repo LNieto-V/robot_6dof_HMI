@@ -43,8 +43,8 @@ class ConfigLoader:
                 center=g_data['center']
             )
         else:
-            # Default dummy gripper if missing
-            gripper = RobotGripper("None", 0, (0,0), 0)
+            # No gripper
+            gripper = None
         
         return RobotConfig(
             name=data['name'],

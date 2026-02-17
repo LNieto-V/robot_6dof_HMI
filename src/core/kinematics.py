@@ -60,6 +60,9 @@ class KinematicsService:
         # 1. Get End Effector Transform
         _, T_end = self.forward_kinematics(units)
         
+        if not self.config.gripper:
+            return np.array([]), np.array([])
+            
         # 2. Calculate opening based on gripper unit value
         # Assuming gripper unit is after the arm joints
         if len(units) <= self.dof:
@@ -71,7 +74,11 @@ class KinematicsService:
         
         # Normalize to 0-1 range (approx) then scale to physical width
         # Logic from unificado.py: opening = ((val - 250) / (550 - 250)) * 3.0
-        opening = ((gripper_val - g_min) / (g_max - g_min)) * 3.0
+        if g_max != g_min:
+             opening = ((gripper_val - g_min) / (g_max - g_min)) * 3.0
+        else:
+             opening = 1.5
+             
         half_opening = opening / 2.0
         
         finger_length = 2.5

@@ -142,20 +142,23 @@ class SidePanel(ctk.CTkFrame):
         card.pack(fill="x", pady=(0, 15))
         
         # Export Demos Button
-        ctk.CTkButton(card.content, text="⬇ Export Demos JSON", height=24, 
+        self.btn_export_demos = ctk.CTkButton(card.content, text="⬇ Export Demos JSON", height=24, 
                       fg_color="#475569", hover_color="#334155", border_width=0,
-                      command=self._export_demos_json).pack(fill="x", pady=(0, 5))
+                      command=self._export_demos_json)
+        self.btn_export_demos.pack(fill="x", pady=(0, 5))
 
         grid = ctk.CTkFrame(card.content, fg_color="transparent", border_width=0)
         grid.pack(fill="x")
         
         # 1-10 Buttons
+        self.demo_buttons = []
         for i in range(1, 11):
             btn = ctk.CTkButton(grid, text=str(i), width=30, height=30, border_width=0,
                                 command=lambda x=i: self._run_traj(x))
             r, c = (i-1)//5, (i-1)%5
             btn.grid(row=r, column=c, padx=3, pady=3, sticky="ew")
             grid.columnconfigure(c, weight=1)
+            self.demo_buttons.append(btn)
         
         ctk.CTkButton(card.content, text="⏹ EMERGENCY STOP", height=36, 
                       fg_color="#e74c3c", hover_color="#c0392b", border_width=0,
@@ -298,6 +301,17 @@ class SidePanel(ctk.CTkFrame):
         self.robot_combo.configure(values=robots)
 
     def _on_robot_selected(self, name):
+        # Restriction: Only enable demos for "OpenBot 5-DOF"
+        # We can check the string name.
+        if "OpenBot" in name or "5-DOF" in name:
+            self.btn_export_demos.configure(state="normal", fg_color="#475569")
+            for btn in self.demo_buttons:
+                btn.configure(state="normal", fg_color="#3b8ed0") # default blueish
+        else:
+            self.btn_export_demos.configure(state="disabled", fg_color="gray")
+            for btn in self.demo_buttons:
+                btn.configure(state="disabled", fg_color="gray")
+
         if self.on_robot_change: self.on_robot_change(name)
 
     def _import_config(self):
