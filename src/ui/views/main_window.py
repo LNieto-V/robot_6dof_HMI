@@ -221,19 +221,18 @@ class MainWindow(ctk.CTk):
         self.view_controls.set_status("Stopped", "red")
 
     def _export(self, fmt):
-        # Prefer recorded waypoints if available?
-        # Or current executed trajectory.
-        # Let's export what was just played/recorded.
-        data = self.simulation.current_trajectory
-        if not data and self.side_panel.recorded_waypoints:
-             data = self.side_panel.recorded_waypoints
-             
+        # Prefer recorded waypoints if user manually recorded them
+        data = self.side_panel.recorded_waypoints
+        if not data:
+             data = self.simulation.current_trajectory
+
         if not data:
             self._log("No data to export")
             return 
             
         ext = f".{fmt}"
         f = filedialog.asksaveasfilename(defaultextension=ext, filetypes=[(f"{fmt.upper()} File", f"*{ext}")])
+
         if f:
             try:
                 with open(f, 'w') as fh:

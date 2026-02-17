@@ -240,13 +240,8 @@ class SidePanel(ctk.CTkFrame):
         if self.on_import: self.on_import()
 
     def _export_menu(self):
-        # Simple toggle or dialog? For now just trigger export txt/json default
-        # or show a dialog. Let's stick to previous behavior but triggered here.
-        # Actually user asked for export.
-        pass # The buttons are separate for JSON/TXT in previous version
-             # but now I merged them. Let's make a small toplevel or simple dialog?
-             # Or just two buttons are better.
-        pass
+        # Default to JSON export as it preserves structure better
+        if self.on_export: self.on_export("json")
 
     def build_sliders(self, robot):
         for w in self.sliders_frame.winfo_children(): w.destroy()
