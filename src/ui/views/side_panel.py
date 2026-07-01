@@ -137,7 +137,7 @@ class SidePanel(ctk.CTkFrame):
         self.sliders_frame.pack(fill="both", expand=True)
 
     def _build_actions(self):
-        # Rebranded as "Demo & Control"
+        # Rebranded as "Demo & Control"u
         card = PanelCard(self, title="Demo Trajectories")
         card.pack(fill="x", pady=(0, 15))
         
